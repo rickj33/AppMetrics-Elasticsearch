@@ -13,7 +13,7 @@ namespace MetricsElasticsearchSandboxMvc
 {
     public static class Host
     {
-        private static readonly string ElasticsearchIndex = "metricselasticsearchsandboxmvc";
+        private static readonly string ElasticsearchIndex = "appmetricssandbox";
         private static readonly string ElasticsearchUri = "http://localhost:9200";
 
         public static IWebHost BuildWebHost(string[] args)
