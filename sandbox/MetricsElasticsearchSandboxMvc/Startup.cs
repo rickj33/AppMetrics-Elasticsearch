@@ -28,8 +28,8 @@ namespace MetricsElasticsearchSandboxMvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTestStuff();
-
-            services.AddMvc(options => options.AddMetricsResourceFilter());
+            services.AddMvc();
+            services.AddMetrics();
         }
     }
 }

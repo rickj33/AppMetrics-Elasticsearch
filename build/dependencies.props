@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AppMetricsCoreVersion>2.0.0-*</AppMetricsCoreVersion>
     <AppMetricsAspNetCoreVersion>2.0.0-*</AppMetricsAspNetCoreVersion>
-    <AspNetCoreVersion>2.0.0-*</AspNetCoreVersion>    
+    <AspNetCoreVersion>2.0.1-*</AspNetCoreVersion>
     <BenchmarkDotNetVersion>0.10.8</BenchmarkDotNetVersion>
     <CoreFxVersion>4.4.0-*</CoreFxVersion>
     <DependencyModelVersion>2.0.0-*</DependencyModelVersion>
