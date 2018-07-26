@@ -2,12 +2,14 @@
 // Copyright (c) Allan Hardy. All rights reserved.
 // </copyright>
 
+using System;
 using App.Metrics;
 using App.Metrics.AspNetCore;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Serilog;
 using Serilog.Events;
+using Serilog.Sinks.Elasticsearch;
 
 namespace MetricsElasticsearchSandboxMvc
 {
@@ -40,7 +42,12 @@ namespace MetricsElasticsearchSandboxMvc
                 .MinimumLevel.Verbose()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Verbose)
                 .WriteTo.LiterateConsole()
-                .WriteTo.Seq("http://localhost:5341")
+                .WriteTo.Elasticsearch(
+                   new ElasticsearchSinkOptions(new Uri(ElasticsearchUri))
+                   {
+                       AutoRegisterTemplate = true,
+                       AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv6,
+                   })
                 .CreateLogger();
         }
     }
