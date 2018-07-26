@@ -13,7 +13,7 @@ namespace App.Metrics.Formatters.Elasticsearch.Internal
         [JsonProperty("name")]
         public string MeasurementName { get; set; }
 
-        [JsonIgnore]
+        [JsonProperty("type")]
         public string MeasurementType { get; internal set; }
 
         [JsonProperty("fields")]

@@ -24,16 +24,22 @@ namespace App.Metrics.Formatters.Elasticsearch
             string elasticsearchIndex,
             Func<string, string, string> metricNameFormatter = null,
             Func<string, string> metricTagValueFormatter = null,
-            GeneratedMetricNameMapping dataKeys = null)
+            GeneratedMetricNameMapping dataKeys = null,
+            string elasticsearchType = "doc")
         {
             if (string.IsNullOrWhiteSpace(elasticsearchIndex))
             {
                 throw new ArgumentNullException(nameof(elasticsearchIndex), "The elasticsearch index name cannot be null or whitespace");
             }
 
+            if (string.IsNullOrWhiteSpace(elasticsearchType))
+            {
+                throw new ArgumentNullException(nameof(elasticsearchType), "The elasticsearch type name cannot be null or whitespace");
+            }
+
             _textWriter = textWriter ?? throw new ArgumentNullException(nameof(textWriter));
             var serializer = JsonSerializer.Create();
-            _bulkPayload = new BulkPayload(serializer, elasticsearchIndex);
+            _bulkPayload = new BulkPayload(serializer, elasticsearchIndex, elasticsearchType);
             _metricNameFormatter = metricNameFormatter ?? ElasticsearchFormatterConstants.ElasticsearchDefaults.MetricNameFormatter;
             _metricTagValueFormatter = metricTagValueFormatter ?? ElasticsearchFormatterConstants.ElasticsearchDefaults.MetricTagValueFormatter;
 
