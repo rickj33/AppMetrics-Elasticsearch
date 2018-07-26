@@ -37,8 +37,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Metrics.Reporting.Elasticsearch", "src\App.Metrics.Reporting.Elasticsearch\App.Metrics.Reporting.Elasticsearch.csproj", "{681A90A6-CE3B-41D0-93FE-5C57849A120D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "visualization", "visualization", "{2427CA3A-1DF8-4755-9288-B9B4EC2DCF39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "elasticsearch-mapping", "elasticsearch-mapping", "{0E4FD8C9-9113-43E6-A0DB-C8DB1E89DF4C}"
 	ProjectSection(SolutionItems) = preProject
-		visualization\App.Metrics.Sandbox-Elasticsearch-IndexAndMappingSetup.json = visualization\App.Metrics.Sandbox-Elasticsearch-IndexAndMappingSetup.json
+	    visualization\elasticsearch-mapping\App.Metrics.Sandbox-Elasticsearch-IndexAndMappingSetup.json = visualization\elasticsearch-mapping\App.Metrics.Sandbox-Elasticsearch-IndexAndMappingSetup.json
+	    visualization\elasticsearch-mapping\App.Metrics.Sandbox-Elasticsearch-IndexTemplateSetup.json = visualization\elasticsearch-mapping\App.Metrics.Sandbox-Elasticsearch-IndexTemplateSetup.json	
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grafana-dashboards", "grafana-dashboards", "{0E4FD8C9-9113-43E6-A0DB-C8DB1E89DF3B}"
@@ -99,6 +102,7 @@ Global
 		{681A90A6-CE3B-41D0-93FE-5C57849A120D} = {2D805782-756E-4C98-B22E-F502BEE95318}
 		{2427CA3A-1DF8-4755-9288-B9B4EC2DCF39} = {31A4DDB1-952E-4EED-96EF-29C669279A86}
 		{0E4FD8C9-9113-43E6-A0DB-C8DB1E89DF3B} = {2427CA3A-1DF8-4755-9288-B9B4EC2DCF39}
+		{0E4FD8C9-9113-43E6-A0DB-C8DB1E89DF4C} = {2427CA3A-1DF8-4755-9288-B9B4EC2DCF39}
 		{6A8C1BAE-B40B-4F12-8C04-8CE911330532} = {31A4DDB1-952E-4EED-96EF-29C669279A86}
 		{3A02E3DC-B24A-4260-9F58-F30F3E239411} = {2D805782-756E-4C98-B22E-F502BEE95318}
 		{4EB8124E-7B95-48E2-BFFB-37F374B59EDE} = {39DF701E-9AB2-47DE-96C4-DCCE641F8449}

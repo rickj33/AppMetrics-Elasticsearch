@@ -1,0 +1,60 @@
+DELETE _template/appmetricssandbox
+
+PUT _template/appmetricssandbox
+{
+  "index_patterns": [
+    "appmetricssandbox-*"
+  ],
+  "settings": {
+    "index.number_of_replicas": 1,
+    "index.number_of_shards": 1
+  },
+  "mappings": {
+    "doc": {
+      "dynamic_templates": [
+        {
+          "strings": {
+            "match_mapping_type": "string",
+            "mapping": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        },
+        {
+          "doubles": {
+            "match_mapping_type": "double",
+            "mapping": {
+              "type": "float"
+            }
+          }
+        }],
+      "properties": {
+        "type": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
+
+PUT _ingest/pipeline/appmetrics
+{
+  "processors": [
+    {
+      "date_index_name": {
+        "field": "@timestamp",
+        "index_name_prefix": "appmetricssandbox-",
+        "date_rounding": "d",
+        "date_formats": [
+          "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
+        ]
+      }
+    }
+  ]
+}

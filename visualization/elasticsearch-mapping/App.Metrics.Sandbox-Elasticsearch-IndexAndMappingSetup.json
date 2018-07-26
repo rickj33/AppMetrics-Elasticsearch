@@ -1,0 +1,92 @@
+DELETE /appmetricssandbox
+
+PUT appmetricssandbox
+{
+  "settings" : {
+      "index" : {
+          "number_of_shards" : 3,
+          "number_of_replicas" : 2
+      }
+  },
+  "mappings" : {
+    "doc" : {
+      "properties": {
+        "type": {
+          "type":     "keyword"
+        },
+        "tags.env": {
+          "type":     "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "tags.exception": {
+          "type":     "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "tags.app": {
+          "type":     "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "tags.route": {
+          "type":     "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "tags.server": {
+          "type":     "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "tags.item": {
+          "type":     "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "tags.client_id": {
+          "type":     "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "tags.http_status_code": {
+          "type":     "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "tags.health_check_name": {
+          "type":     "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        }
+      }
+    }
+  }
+}
